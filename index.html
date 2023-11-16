@@ -7,52 +7,159 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PKMNCalc by Zach</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .my-heading{
+            border-radius: 2px;
+        }
+        /* Custom styles to limit container width to 50% */
+        .type-selector {
+            max-width: 50%;
+        }
+
+        /* Ensure buttons in the first container have the same size */
+        .type-selector .btn {
+            width: 100%;
+            margin-bottom: 8px; /* Add margin between buttons */
+            white-space: nowrap;
+            color: #ffffff;
+ 
+        }
+        .type-selector .btn:hover {
+            color: #fff; /* Change text color on hover */
+            background-color: inherit; /* Inherit background color from the parent */
+            border-color: inherit; 
+        }
+        button[ptype]{
+            border: solid rgba(245, 245, 245, 0.373) 1px;
+        }
+        button[ptype="Flying"]{
+            background-color:rgb(115, 114, 214, 21);
+        }
+        button[ptype="Fighting"]{
+            background-color: rgb(120, 72, 66);
+        }
+        button[ptype="Poison"]{
+            background-color: rgb(144, 30, 210);
+        }
+        button[ptype="Ground"]{
+            background-color: chocolate;
+        }
+        button[ptype="Rock"]{
+            background-color: rgb(94, 49, 17);
+        }
+        button[ptype="Psychic"]{
+            background-color: hotpink;
+        }
+        button[ptype="Bug"]{
+            background-color: rgb(115, 173, 29);
+        }
+        button[ptype="Ghost"]{
+            background-color: darkslateblue;
+        }
+        button[ptype="Steel"]{
+            background-color: lightslategray;
+        }
+        button[ptype="Dragon"]{
+            background-color: chocolate;
+        }
+        button[ptype="Dark"]{
+            background-color: rgb(24, 9, 9);
+        }
+        button[ptype="Fairy"]{
+            background-color: rgb(221, 168, 177);
+            color: black;
+        }
+        /* Add styling for the second container */
+        .second-container {
+            padding: 20px;
+        }
+        @media (max-width: 1176px) {
+            .type-selector .btn {
+                font-size: 14px;
+                width: fit-content;
+            }
+        }
+        </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <h1 class="text-center">
-            Pokemon Calculator
-        </h1>
-        <p class="text-muted">By <a href="https://www.zacisyourmaster.github.io/"
-                class="text-decoration-none text-reset">Zach Smith</a></p>
-    </div>
-    <!--
-
-    -->
-    <div class="container border">
-        <div class="type-select d-flex flex-column w-50">
-            <h2 class="text-start">Select Type:</h2>
-            <div class="flex-row d-flex">
-                <div class="p-2 btn btn-secondary btn-block m-1">Fire</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Water</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Grass</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Steel</div>
+    <div class="container-fluid my-heading border-bottom border-3 mt-2 mb-1">
+        <h1 class="text-center">Pokemon Calculator</h1>
+        <p class="text-muted">By <a href="https://zacisyourmaster.github.io/"
+            class="text-decoration-underline text-reset">Zach Smith</a></p> 
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-6 type-selector">
+                <h2 class="text-center mb-4">Pokémon Types</h2>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-secondary btn-block" ptype="Normal">Normal</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-danger btn-block" ptype="Fire">Fire</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary btn-block" ptype="Water">Water</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-success btn-block" ptype="Grass">Grass</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Flying">Flying</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Fighting">Fighting</button>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-2">
+                        <button type="button" class="btn  btn-block" ptype="Poison">Poison</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-warning btn-block" ptype="Electric">Electric</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn  btn-block" ptype="Ground">Ground</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn  btn-block" ptype="Rock">Rock</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn  btn-block" ptype="Psychic">Psychic</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-info btn-block" ptype="Ice">Ice</button>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Bug">Bug</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Ghost">Ghost</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Steel">Steel</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Dragon">Dragon</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Dark">Dark</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block" ptype="Fairy">Fairy</button>
+                    </div>
+                </div>
             </div>
-            <div class="flex-row d-flex">
-                <div class="p-2 btn btn-secondary btn-block m-1">Fairy</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Dragon</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Ghost</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Psychic</div>
-            </div>
-            <div class="flex-column d-flex">
-                <div class="p-2 btn btn-secondary btn-block m-1">Dark</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Poison</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Ground</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Rock</div>
-            </div>
-            <div class="flex-column d-flex">
-                <div class="p-2 btn btn-secondary btn-block m-1">Flying</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Fighting</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Normal</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Bug</div>
-            </div>
-            <div class="flex-column d-flex">
-                <div class="p-2 btn btn-secondary btn-block m-1">Electric</div>
-                <div class="p-2 btn btn-secondary btn-block m-1">Ice</div>
+            <div class="col-md-6 second-container weaknesses ">
+                <h2 class="text-center mb-4">Weaknesses</h2>
+                
             </div>
         </div>
-    </div>
+        <div class="desc p-md-3 border-top border-4 mt-md-3">
+            <p class="instructions">How to use:<br>Please select up to two Pokemon types, and our webiste will display the strenghts and weaknesses of those pokemon on the right side of screen.<br>Enjoy Battling!</p>
+        </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 </body>
 
