@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.querySelector(".poke-search form");
-  var resultsParagraph = document.querySelector(".results");
   const typeChart = {
     Normal: {
       Normal: 1.0,
@@ -373,14 +372,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (const key in typeChart) {
       if (type2 === undefined) {
-        if (typeChart[key][type1] == 1.0)
-          neutral.push(key);
-        else if (typeChart[key][type1] == 2.0) 
-          twox.push(key);
-        else if (typeChart[key][type1] == 0.5) 
-          halfx.push(key);
-        else if (typeChart[key][type1] == 0.0) 
-          zerox.push(key);
+        if (typeChart[key][type1] == 1.0) neutral.push(key);
+        else if (typeChart[key][type1] == 2.0) twox.push(key);
+        else if (typeChart[key][type1] == 0.5) halfx.push(key);
+        else if (typeChart[key][type1] == 0.0) zerox.push(key);
       } else {
         if (typeChart[key][type1] * typeChart[key][type2] == 1.0)
           neutral.push(key);
@@ -396,19 +391,16 @@ document.addEventListener("DOMContentLoaded", function () {
           qtrx.push(key);
       }
     }
-    // if (type2 != undefined) {
-    //   console.log(fourx);
-    //   console.log(twox);
-    //   console.log(neutral);
-    //   console.log(halfx);
-    //   console.log(qtrx);
-    //   console.log(zerox);
-    // } else {
-    //   twox.length > 0 ? console.log(twox) : "";
-    //   neutral.length > 0 ? console.log(neutral) : "";
-    //   halfx.length > 0 ? console.log(halfx) : "";
-    //   zerox.length > 0 ? console.log(zerox) : "";
-    // }
+    var defense = [];
+    if (type2 != undefined) {
+      return [fourx, twox, neutral, halfx, qtrx, zerox];
+    } else {
+      twox.length > 0 ? defense.push(twox) : "";
+      neutral.length > 0 ? defense.push(neutral) : "";
+      halfx.length > 0 ? defense.push(halfx) : "";
+      zerox.length > 0 ? defense.push(zerox) : "";
+    }
+    return defense;
   }
   // Load the JSON file
   fetch("pokedex1.json")
@@ -425,16 +417,38 @@ document.addEventListener("DOMContentLoaded", function () {
         var pokemonData = data.find(
           (pokemon) => pokemon.name.toLowerCase() === pokemonName.toLowerCase()
         );
-        function weakness(type) {}
-        // Update the results paragraph based on the found data
         if (pokemonData) {
-          // Access the specific properties in your JSON structure
-          var typeInfo = `Type: ${pokemonData.pdtype}`;
-          resultsParagraph.textContent = `
-          Takes 2x From<br/>
-          ${weakness(typeInfo)}`;
+          var typeInfo = pokemonData.pdtype.split(" ");
+          defenses =
+            typeInfo.length > 1
+              ? weakness(typeInfo[0], typeInfo[1])
+              : weakness(typeInfo[0]);
+          const defDiv = document.querySelector(".results");
+          var defenseValues = defenses; // Assuming defenses is an array
+          var titles=["4x","2x","1x","1/2x","1/4x","0x"];
+          for (var i = 0; i < defenseValues.length; i++) {
+            var newDefenseString = `Takes ${titles[i]} From`;
+            var newDefenseText = document.createTextNode(newDefenseString);
+
+            defDiv.append(newDefenseText);
+
+            var lineBreak = document.createElement("br");
+            defDiv.appendChild(lineBreak);
+
+            var defensesValue = defenseValues[i];
+            var defensesText = document.createTextNode(defensesValue);
+            defDiv.appendChild(defensesText);
+
+            // Add an extra line break if there are more elements to display
+            if (i < defenseValues.length - 1) {
+              defDiv.appendChild(document.createElement("br"));
+            }
+          }
         } else {
-          resultsParagraph.textContent = `Pokemon not found.`;
+          var NotFound = document.createTextNode(
+            "Could Not Find this Pokemon Please Try Again"
+          );
+          defDiv.append(NotFound);
         }
       });
     })

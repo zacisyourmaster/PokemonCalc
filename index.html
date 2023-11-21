@@ -38,14 +38,15 @@
         /* Custom styles to limit container width to 50% */
         /* Ensure buttons in the first container have the same size */
         .type-selector .btn {
-            width:4lvw;
+            width: 4lvw;
             margin-bottom: 8px;
             /* Add margin between buttons */
             white-space: nowrap;
             color: #ffffff;
-            
+            border-radius: 15px !important;
         }
-        .type-selector{
+
+        .type-selector {
             justify-content: center !important;
         }
 
@@ -55,6 +56,7 @@
             /*background-color: inherit;
             /* Inherit background color from the parent */
             border-color: inherit;
+
         }
 
         .type-selector .btn:focus {
@@ -131,7 +133,6 @@
         .columns-type-selector {
             grid-template-columns: repeat(auto-fill, minmax(calc(var(--type-min-width) + 2.5rem + 2px), 1fr));
         }
-
     </style>
 </head>
 
@@ -144,22 +145,26 @@
                             Smith</b></a></p>
             </div>
             <main class="container-fluid px-3 pt-0 pb-4 d-flex">
-                <div class="flex-auto w-50 d-grid">
+                <div class="flex-auto w-50 d-grid type1">
                     <h2 class="fs-4 mb-2 mt-4">Select a Type</h2>
                     <div class="columns-type-selector">
                         <div class="row type-selector">
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-secondary  align-content-center "
+                                <button type="button"
+                                    class=" btn overflow-hidden p-2 btn-secondary  align-content-center "
                                     ptype="Normal">Normal</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-danger " ptype="Fire">Fire</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-danger "
+                                    ptype="Fire">Fire</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-primary " ptype="Water">Water</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-primary "
+                                    ptype="Water">Water</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-success  " ptype="Grass">Grass</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-success  "
+                                    ptype="Grass">Grass</button>
                             </div>
                         </div>
                         <div class="row type-selector">
@@ -167,7 +172,8 @@
                                 <button type="button" class=" btn overflow-hidden p-2  " ptype="Flying">Flying</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 overflow-hidden p-1 " ptype="Fighting">Fighting</button>
+                                <button type="button" class=" btn overflow-hidden p-2 overflow-hidden p-1 "
+                                    ptype="Fighting">Fighting</button>
                             </div>
                             <div class="col col-md-1">
                                 <button type="button" class=" btn overflow-hidden p-2   " ptype="Poison">Poison</button>
@@ -185,10 +191,12 @@
                                 <button type="button" class=" btn overflow-hidden p-2   " ptype="Rock">Rock</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Psychic">Psychic</button>
+                                <button type="button" class=" btn overflow-hidden p-2   "
+                                    ptype="Psychic">Psychic</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-info  " ptype="Ice">Ice</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-info  "
+                                    ptype="Ice">Ice</button>
                             </div>
                         </div>
                         <div class="row type-selector">
@@ -214,7 +222,7 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="fs-4 mb-2 mt-4">Add a Second Type(Optional)</h2>
+                    <h2 class="fs-4 mb-2 mt-4 type2">Add a Second Type(Optional)</h2>
                     <div class="columns-type-selector">
                         <div class="row type-selector">
                             <div class="col col-md-1">
@@ -222,13 +230,16 @@
                                     ptype="Normal">Normal</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-danger  " ptype="Fire">Fire</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-danger  "
+                                    ptype="Fire">Fire</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-primary  " ptype="Water">Water</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-primary  "
+                                    ptype="Water">Water</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-success  " ptype="Grass">Grass</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-success  "
+                                    ptype="Grass">Grass</button>
                             </div>
                         </div>
                         <div class="row type-selector">
@@ -236,7 +247,8 @@
                                 <button type="button" class=" btn overflow-hidden p-2  " ptype="Flying">Flying</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Fighting">Fighting</button>
+                                <button type="button" class=" btn overflow-hidden p-2  "
+                                    ptype="Fighting">Fighting</button>
                             </div>
                             <div class="col col-md-1">
                                 <button type="button" class=" btn overflow-hidden p-2   " ptype="Poison">Poison</button>
@@ -254,10 +266,12 @@
                                 <button type="button" class=" btn overflow-hidden p-2   " ptype="Rock">Rock</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Psychic">Psychic</button>
+                                <button type="button" class=" btn overflow-hidden p-2   "
+                                    ptype="Psychic">Psychic</button>
                             </div>
                             <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-info  " ptype="Ice">Ice</button>
+                                <button type="button" class=" btn overflow-hidden p-2 btn-info  "
+                                    ptype="Ice">Ice</button>
                             </div>
                         </div>
                         <div class="row type-selector">
@@ -281,13 +295,23 @@
                             <div class="col col-md-1">
                                 <button type="button" class=" btn overflow-hidden p-2  " ptype="Fairy">Fairy</button>
                             </div>
+                            <div class="col col-md-1">
+                                <button type="button" class=" btn overflow-hidden p-2  " ptype="None">None</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="flex-auto w-50 ps-5 d-sm-block">
                     <div class="row">
-
                         <h2 class="fs-4 mb-2 mt-4">Weaknesses</h2>
+                        <p class="defense">
+                            <span class="fourx"></span><br />
+                            <span class="twox">Takes 2x Damage From</span><br />
+                            <span class="neutral">Takes 1x Damage From</span><br />
+                            <span class="halfx"></span><br />
+                            <span class="qtrx"></span><br />
+                            <span class="zerox">Takes 0x Damage From</span>
+                        </p>
                     </div>
                 </div>
             </main>
@@ -302,7 +326,7 @@
             <input type="search" id="pname" name='pname' placeholder="ex: Charizard" />
             <input type="submit" value="Search!" />
         </form>
-        <p class="results"></p>
+        <div class="results"></div>
     </div>
     <div class="desc p-md-3 border-top border-4 mt-md-3">
         <p class="instructions">How to use:<br>Please select up to two Pokemon types, and our webiste will
