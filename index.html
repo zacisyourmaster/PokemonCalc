@@ -1,340 +1,712 @@
 <!DOCTYPE html>
 <html lang="en-US" data-bs-theme="dark">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>PKMNCalc by Zach</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.css"
+    />
+    
     <style>
-        .my-heading {
-            border-radius: 2px;
-            background: linear-gradient(#ffffffa9, #212529);
-            margin-top: 0 !important;
-            padding-top: 1rem !important;
-            padding-bottom: .5rem !important;
+        body{
+            overflow-x: hidden;
         }
+      .my-heading {
+        border-radius: 2px;
+        background: linear-gradient(#ffffffa9, #212529);
+        margin-top: 0 !important;
+        padding-top: 1rem !important;
+        padding-bottom: 0.5rem !important;
+        border-radius: 0%;
+      }
 
-        h1 {
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
-        }
+      h1 {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+      }
 
-        .one {
-            color: red;
-        }
+      .one {
+        color: red;
+      }
 
-        .flex-auto {
-            flex: 1 1 auto;
-            min-width: 0;
-            min-height: 0;
-        }
+      .flex-auto {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 0;
+      }
 
-        .content-wide {
-            max-width: 1100px;
-        }
+      .content-wide {
+        max-width: 1300px;
+      }
+      label[ptype] {
+        border: solid rgba(245, 245, 245, 0.8) 1px;
+        --bs-btn-color: #fff;
+        border-radius: 15px;
+        /* --bs-btn-bg: #dc3545; */
+        /* --bs-btn-border-color: #dc3545; */
+        --bs-btn-hover-color: #fff;
+        /* --bs-btn-hover-bg: #bb2d3b; need this*/
+        /* --bs-btn-hover-border-color: #b02a37; need this*/
+        --bs-btn-focus-shadow-rgb: 225, 83, 97;
+        --bs-btn-active-color: #fff;
+        /* --bs-btn-active-bg: #b02a37; */
+        /* --bs-btn-active-border-color: #a52834; */
+        --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) /;
+      }
 
-        /* Custom styles to limit container width to 50% */
-        /* Ensure buttons in the first container have the same size */
+      label[ptype="Flying"] {
+        background-color: rgb(115, 114, 214, 21);
+      }
+
+      label[ptype="Fighting"] {
+        background-color: rgb(120, 72, 66);
+      }
+
+      label[ptype="Poison"] {
+        background-color: rgb(144, 30, 210);
+      }
+
+      label[ptype="Ground"] {
+        background-color: chocolate;
+      }
+
+      label[ptype="Rock"] {
+        background-color: rgb(94, 49, 17);
+      }
+
+      label[ptype="Psychic"] {
+        background-color: hotpink;
+      }
+
+      label[ptype="Bug"] {
+        background-color: rgb(115, 173, 29);
+      }
+
+      label[ptype="Ghost"] {
+        background-color: darkslateblue;
+      }
+
+      label[ptype="Steel"] {
+        background-color: lightslategray;
+      }
+
+      label[ptype="Dragon"] {
+        background-color: chocolate;
+      }
+
+      label[ptype="Dark"] {
+        background-color: rgb(24, 9, 9);
+      }
+
+      label[ptype="Fairy"] {
+        background-color: rgb(221, 168, 177);
+      }
+
+      /* Add styling for the second container */
+      .second-container {
+        padding: 20px;
+      }
+
+      @media (max-width: 1176px) {
         .type-selector .btn {
-            width: 4lvw;
-            margin-bottom: 8px;
-            /* Add margin between buttons */
-            white-space: nowrap;
-            color: #ffffff;
-            border-radius: 15px !important;
+          font-size: 14px;
+          width: fit-content;
         }
-
-        .type-selector {
-            justify-content: center !important;
-        }
-
-        .type-selector .btn:hover {
-            color: #fff;
-            /* Change text color on hover */
-            /*background-color: inherit;
-            /* Inherit background color from the parent */
-            border-color: inherit;
-
-        }
-
-        .type-selector .btn:focus {
-            outline: 3px solid #ffffff;
-            /* You can adjust the color and width as needed */
-        }
-
-        button[ptype] {
-            border: solid rgba(245, 245, 245, 0.373) 1px;
-        }
-
-        button[ptype="Flying"] {
-            background-color: rgb(115, 114, 214, 21);
-        }
-
-        button[ptype="Fighting"] {
-            background-color: rgb(120, 72, 66);
-        }
-
-        button[ptype="Poison"] {
-            background-color: rgb(144, 30, 210);
-        }
-
-        button[ptype="Ground"] {
-            background-color: chocolate;
-        }
-
-        button[ptype="Rock"] {
-            background-color: rgb(94, 49, 17);
-        }
-
-        button[ptype="Psychic"] {
-            background-color: hotpink;
-        }
-
-        button[ptype="Bug"] {
-            background-color: rgb(115, 173, 29);
-        }
-
-        button[ptype="Ghost"] {
-            background-color: darkslateblue;
-        }
-
-        button[ptype="Steel"] {
-            background-color: lightslategray;
-        }
-
-        button[ptype="Dragon"] {
-            background-color: chocolate;
-        }
-
-        button[ptype="Dark"] {
-            background-color: rgb(24, 9, 9);
-        }
-
-        button[ptype="Fairy"] {
-            background-color: rgb(221, 168, 177);
-            color: black;
-        }
-
-        /* Add styling for the second container */
-        .second-container {
-            padding: 20px;
-        }
-
-        @media (max-width: 1176px) {
-            .type-selector .btn {
-                font-size: 14px;
-                width: fit-content;
-            }
-
-        }
-
-        .columns-type-selector {
-            grid-template-columns: repeat(auto-fill, minmax(calc(var(--type-min-width) + 2.5rem + 2px), 1fr));
-        }
+      }
+      .results{
+        padding: 4px;
+        border-style: solid;
+        border-width: 1px;
+        line-height: 1.25;
+        text-align: center;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="min-vh-100 flex flex-column">
-        <div class="flex-auto">
-            <div class="container-fluid my-heading border-3 mt-2 mb-1">
-                <h1 class="text-center"><span class="one">Poke</span><span class="two">mon</span> Calculator</h1>
-                <p>By <a href="https://zacisyourmaster.github.io/" class="text-decoration-underline text-reset"><b>Zach
-                            Smith</b></a></p>
+  <body>
+    <div class=" d-flex flex-column">
+      <div class="container-fluid my-heading border-3 mt-2 mb-1">
+        <h1 class="text-center">
+          <span class="one">Poke</span><span class="two">mon</span> Calculator
+        </h1>
+        <p>
+          By
+          <a
+            href="https://zacisyourmaster.github.io/"
+            class="text-decoration-underline text-reset"
+            ><b>Zach Smith</b></a
+          >
+        </p>
+      </div>
+      <div class="d-flex">
+        <main class="container-fluid px-4 pt-0 pb-4 d-flex content-wide">
+          <div class="flex-auto w-50 pe-5 d-sm-block type1">
+            <h2 class="fs-5 mb-2 mt-4">Select a Type</h2>
+            <div class="columns-type-selector">
+              <div
+                class="d-grid gap-2"
+                style="
+                  grid-template-columns: repeat(
+                    auto-fill,
+                    minmax(calc(5rem + 2.5rem + 2px), 1fr)
+                  );
+                "
+              >
+                <label class="btn m-1 btn-secondary" ptype="Normal">
+                  <input
+                    type="radio"
+                    name="primary"
+                    checked
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Normal
+                </label>
+                <label class="btn m-1 btn-danger" ptype="Fire">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fire
+                </label>
+                <label class="btn m-1 btn-primary" ptype="Water">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Water
+                </label>
+                <label class="btn m-1 btn-success" ptype="Grass">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Grass
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Flying">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Flying
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Fighting">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fighting
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Poison">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Poison
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Electric">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Electric
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Ground">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ground
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Rock">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Rock
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Psychic">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Psychic
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Ice">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ice
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Bug">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Bug
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Ghost">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ghost
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Steel">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Steel
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Dragon">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Dragon
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Dark">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Dark
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Fairy">
+                  <input
+                    type="radio"
+                    name="primary"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fairy
+                </label>
+              </div>
             </div>
-            <main class="container-fluid px-3 pt-0 pb-4 d-flex">
-                <div class="flex-auto w-50 d-grid type1">
-                    <h2 class="fs-4 mb-2 mt-4">Select a Type</h2>
-                    <div class="columns-type-selector">
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button"
-                                    class=" btn overflow-hidden p-2 btn-secondary  align-content-center "
-                                    ptype="Normal">Normal</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-danger "
-                                    ptype="Fire">Fire</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-primary "
-                                    ptype="Water">Water</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-success  "
-                                    ptype="Grass">Grass</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Flying">Flying</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 overflow-hidden p-1 "
-                                    ptype="Fighting">Fighting</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Poison">Poison</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-warning  "
-                                    ptype="Electric">Electric</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Ground">Ground</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Rock">Rock</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   "
-                                    ptype="Psychic">Psychic</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-info  "
-                                    ptype="Ice">Ice</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Bug">Bug</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Ghost">Ghost</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Steel">Steel</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Dragon">Dragon</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Dark">Dark</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Fairy">Fairy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <h2 class="fs-4 mb-2 mt-4 type2">Add a Second Type(Optional)</h2>
-                    <div class="columns-type-selector">
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-secondary   "
-                                    ptype="Normal">Normal</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-danger  "
-                                    ptype="Fire">Fire</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-primary  "
-                                    ptype="Water">Water</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-success  "
-                                    ptype="Grass">Grass</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Flying">Flying</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  "
-                                    ptype="Fighting">Fighting</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Poison">Poison</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-warning  "
-                                    ptype="Electric">Electric</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Ground">Ground</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   " ptype="Rock">Rock</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2   "
-                                    ptype="Psychic">Psychic</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2 btn-info  "
-                                    ptype="Ice">Ice</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Bug">Bug</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Ghost">Ghost</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Steel">Steel</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Dragon">Dragon</button>
-                            </div>
-                        </div>
-                        <div class="row type-selector">
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Dark">Dark</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="Fairy">Fairy</button>
-                            </div>
-                            <div class="col col-md-1">
-                                <button type="button" class=" btn overflow-hidden p-2  " ptype="None">None</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-auto w-50 ps-5 d-sm-block">
-                    <div class="row">
-                        <h2 class="fs-4 mb-2 mt-4">Weaknesses</h2>
-                        <p class="defense">
-                            <span class="fourx"></span><br />
-                            <span class="twox">Takes 2x Damage From</span><br />
-                            <span class="neutral">Takes 1x Damage From</span><br />
-                            <span class="halfx"></span><br />
-                            <span class="qtrx"></span><br />
-                            <span class="zerox">Takes 0x Damage From</span>
-                        </p>
-                    </div>
-                </div>
-            </main>
-        </div>
+            <h2 class="fs-5 mb-2 mt-4 type2">Add a Second Type (Optional)</h2>
+            <div class="columns-type-selector">
+              <div
+                class="d-grid gap-2"
+                style="
+                  grid-template-columns: repeat(
+                    auto-fill,
+                    minmax(calc(5rem + 2.5rem + 2px), 1fr)
+                  );
+                "
+              >
+                <label class="btn m-1 btn-secondary" ptype="Normal">
+                  <input
+                    type="radio"
+                    name="options"
+                    checked
+                    style="accent-color: rgb(12, 36, 12)"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Normal
+                </label>
+                <label class="btn m-1 btn-danger" ptype="Fire">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fire
+                </label>
+                <label class="btn m-1 btn-primary" ptype="Water">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Water
+                </label>
+                <label class="btn m-1 btn-success" ptype="Grass">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Grass
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Flying">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Flying
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Fighting">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fighting
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Poison">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Poison
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Electric">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Electric
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Ground">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ground
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Rock">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Rock
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Psychic">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Psychic
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Ice">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ice
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Bug">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Bug
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Ghost">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Ghost
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Steel">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Steel
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Dragon">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Dragon
+                </label>
+
+                <label class="btn m-1 btn-secondary" ptype="Dark">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Dark
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="Fairy">
+                  <input
+                    type="radio"
+                    name="options"
+                    style="accent-color: rgb(12, 36, 12)"
+                  />
+                  Fairy
+                </label>
+                <label class="btn m-1 btn-secondary" ptype="null">
+                    <input
+                      type="radio"
+                      name="options"
+                      checked
+                      style="accent-color: rgb(12, 36, 12)"
+                    />
+                    None
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="flex-auto w-50 ps-5 d-sm-block">
+            <div class="row defense">
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
     <div class="poke-search container-fluid m-2">
-        <h3 class="poke-search-head">Rather search up a specific Pokemon? Type it down below!</h3>
-        <p>We only have Pokemon from SV Pokedex at the moment!</p>
-        <form class="poke-search ">
-            <label for="pname">Enter a Pokemon:</label>
-            <br />
-            <input type="search" id="pname" name='pname' placeholder="ex: Charizard" />
-            <input type="submit" value="Search!" />
-        </form>
-        <div class="results"></div>
+      <h3 class="poke-search-head">
+        Rather search up a specific Pokemon? Type it down below!
+      </h3>
+      <p>We only have Pokemon from SV Pokedex at the moment!</p>
+      <form class="poke-search">
+        <label for="pname">Enter a Pokemon:</label>
+        <br />
+        <input
+          type="search"
+          id="pname"
+          name="pname"
+          placeholder="ex: Charizard"
+        />
+        <input type="submit" value="Search!" />
+        <div class="nf d-inline-block alert alert-danger alert-dismissible fade show" role="alert" style="display: none !important;">
+      </form>
+        <strong>Yikes! </strong> Looks like we haven't discovered that Pokemon yet!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     </div>
     <div class="desc p-md-3 border-top border-4 mt-md-3">
-        <p class="instructions">How to use:<br>Please select up to two Pokemon types, and our webiste will
-            display the
-            strenghts and weaknesses of those pokemon on the right side of screen.<br>Enjoy Battling!</p>
+      <p class="instructions">
+        How to use:<br />Please select up to two Pokemon types, and our webiste
+        will display the strenghts and weaknesses of those pokemon on the right
+        side of screen.<br />Enjoy Battling!
+      </p>
     </div>
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
+  <!-- <div class="row type-selector">
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-secondary align-content-center"
+                    ptype="Normal"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Normal
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-danger"
+                    ptype="Fire"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Fire
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-primary"
+                    ptype="Water"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Water
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-success"
+                    ptype="Grass"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Grass
+                  </button>
+                </div>
+              </div>
+              <div class="row type-selector">
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Flying"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Flying
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Fighting"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Fighting
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Poison"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Poison
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-warning"
+                    ptype="Electric"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Electric
+                  </button>
+                </div>
+              </div>
+              <div class="row type-selector">
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Ground"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Ground
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Rock"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Rock
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Psychic"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Psychic
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2 btn-info"
+                    ptype="Ice"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Ice
+                  </button>
+                </div>
+              </div>
+              <div class="row type-selector">
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Bug"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Bug
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Ghost"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Ghost
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Steel"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Steel
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Dragon"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Dragon
+                  </button>
+                </div>
+              </div>
+              <div class="row type-selector">
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Dark"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Dark
+                  </button>
+                </div>
+                <div class="col col-md-1">
+                  <button
+                    type="button"
+                    class="btn overflow-hidden p-2"
+                    ptype="Fairy"
+                    onclick="updateVariables('t1', this)"
+                  >
+                    Fairy
+                  </button>
+                </div>
+              </div> -->
