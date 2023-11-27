@@ -410,6 +410,7 @@ function weakness(type1, type2 = null) {
         qtrx.push(key);
     }
   }
+
   var defenses = {};
 
   if (fourx.length > 0) defenses.fourx = fourx;
@@ -421,6 +422,7 @@ function weakness(type1, type2 = null) {
 
   return defenses;
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   updateResults("Normal");
   const primary = document.querySelectorAll(".primaryType");
@@ -440,6 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateResults(types[0], types[1]);
     });
   }
+
   function updateResults(t1, t2) {
     const result = weakness(t1, t2);
     const defense = document.querySelector(".defense");
@@ -470,30 +473,25 @@ document.addEventListener("DOMContentLoaded", () => {
       defense.appendChild(types);
     }
   }
-  var form = document.querySelector(".poke-search form");
-  // Load the JSON file
 
-  fetch("pokedex2.json")
+  var form = document.querySelector(".poke-search form");
+
+  fetch("pokedex3.json")
     .then((response) => response.json())
     .then((data) => {
-      // Add a submit event listener to the form
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-        // Get the value entered by the user
-        var pokemonName = document.getElementById("pname").value;
-        console.log(pokemonName);
-        // Find the Pokemon data in the loaded JSON file
+        const notFound = document.querySelector(".nf");
+        var pokemonName = document.getElementById("pname").value.trim();
         var pokemonData = data.find(
           (pokemon) => pokemon.name.toLowerCase() === pokemonName.toLowerCase()
         );
 
         if (pokemonData) {
-          var typeInfo;
-          typeInfo = pokemonData.pdtype;
-          console.log(typeInfo);
+          var typeInfo = pokemonData.pdtype;
           updateResults(typeInfo[0], typeInfo[1]);
+          notFound.setAttribute("style", "display: none !important;");
         } else {
-          const notFound = document.querySelector(".nf");
           notFound.setAttribute("style", "display: contents;");
         }
       });

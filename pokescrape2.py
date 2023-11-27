@@ -5,7 +5,7 @@ import re
 import json
 sys.stdout.reconfigure(encoding='utf-8')
 
-url="https://pokemondb.net/pokedex/game/scarlet-violet"
+url="https://pokemondb.net/pokedex/national"
 result=requests.get(url).text
 doc=BeautifulSoup(result,"html.parser")
 
@@ -18,7 +18,7 @@ for infocard in infocards:
     name = infocard.find("a", class_="ent-name").string
     pokemon_types = [itype.string for itype in infocard.find_all("a", class_="itype")]
     pokedex_number = infocard.find("small").string# if infocard.find("small") else None
-    pokedex[name]={'pdnum':pokedex_number[2:],'pdtype':pokemon_types}
+    pokedex[name]={'pdnum':pokedex_number[1:],'pdtype':pokemon_types}
 pokemon_list = [{"name": name, **data} for name, data in pokedex.items()]
-with open ('pokedex2.json', 'w') as json_file:
+with open ('pokedex3.json', 'w') as json_file:
         json.dump(pokemon_list, json_file, indent=2)
