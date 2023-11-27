@@ -1,0 +1,221 @@
+body {
+  /* width: fit-content; */
+  margin:0;
+  padding:0;
+}
+.app-title{
+    font-size:1.5rem;
+    margin:.5rem;
+}
+
+.my-heading {
+  border-radius: 2px;
+  background: linear-gradient(#ffffffa9, #212529);
+  margin-top: 0 !important;
+  padding-top: 1rem !important;
+  padding-bottom: 0.5rem !important;
+  border-radius: 0%;
+}
+.navbar-links ul{
+    margin:0;
+    padding:0;
+}
+.navbar-links li{
+    list-style: none;
+}
+.navbar-links li a{
+    text-decoration: none;
+    color:white;
+    padding:1rem;
+}
+.navbar-links li:hover{
+    background-color: #555;
+    
+}
+.navbar-toggler{
+    position: absolute;
+    top: .75rem;
+    right:1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.navbar-toggler .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+@media (max-width:600px) {
+    .navbar-toggler{
+        display: flex;
+    }
+    .navbar-links{
+        display: none;
+        width: 100%;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items:flex-start;
+
+    }
+    .navbar-links ul{
+        width:100%;
+        flex-direction: column;
+    }
+    .navbar-links li{
+        text-align: center;
+    }
+    .navbar-links li a {
+        padding:.5rem 1rem;
+    }
+    .navbar-links.active{
+        display: flex;
+    }
+    
+}
+h1 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.one {
+  color: red;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+
+.content-wide {
+  max-width: 1300px;
+}
+
+label[ptype] {
+  border: solid rgba(245, 245, 245, 0.358) 2px;
+  border-radius: 15px;
+  text-shadow: 0 1px 0 black, 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.8),
+    0 0 4px rgba(0, 0, 0, 0.9);
+  font-size: 1.1rem;
+  --bs-btn-hover-border-color: var(--bs-btn-hover-bg);
+}
+
+label[ptype="Normal"] {
+  background-color: var(--normal-bg, #c2beb7);
+  --bs-btn-hover-bg: var(--normal-hover-bg, #8a8a60);
+}
+
+label[ptype="Fire"] {
+  background-color: var(--fire-bg, #f08030);
+  --bs-btn-hover-bg: var(--fire-hover-bg, #d87040);
+}
+
+label[ptype="Water"] {
+  background-color: var(--water-bg, #6890f0);
+  --bs-btn-hover-bg: var(--water-hover-bg, #5172b0);
+}
+
+label[ptype="Electric"] {
+  background-color: var(--electric-bg, #f8d030);
+  --bs-btn-hover-bg: var(--electric-hover-bg, #d2b82c);
+}
+
+label[ptype="Grass"] {
+  background-color: var(--grass-bg, #78c850);
+  --bs-btn-hover-bg: var(--grass-hover-bg, #639a44);
+}
+
+label[ptype="Ice"] {
+  background-color: var(--ice-bg, #98d8d8);
+  --bs-btn-hover-bg: var(--ice-hover-bg, #81c9c9);
+}
+
+label[ptype="Fighting"] {
+  background-color: var(--fighting-bg, #c03028);
+  --bs-btn-hover-bg: var(--fighting-hover-bg, #a82820);
+}
+
+label[ptype="Poison"] {
+  background-color: var(--poison-bg, #a040a0);
+  --bs-btn-hover-bg: var(--poison-hover-bg, #873b87);
+}
+
+label[ptype="Ground"] {
+  background-color: var(--ground-bg, #e0c068);
+  --bs-btn-hover-bg: var(--ground-hover-bg, #b59e5a);
+}
+
+label[ptype="Flying"] {
+  background-color: var(--flying-bg, #a890f0);
+  --bs-btn-hover-bg: var(--flying-hover-bg, #8e74e8);
+}
+
+label[ptype="Psychic"] {
+  background-color: var(--psychic-bg, #f85888);
+  --bs-btn-hover-bg: var(--psychic-hover-bg, #e64578);
+}
+
+label[ptype="Bug"] {
+  background-color: var(--bug-bg, #a8b820);
+  --bs-btn-hover-bg: var(--bug-hover-bg, #8e9a35);
+}
+
+label[ptype="Rock"] {
+  background-color: var(--rock-bg, #b8a038);
+  --bs-btn-hover-bg: var(--rock-hover-bg, #9e8b3d);
+}
+
+label[ptype="Ghost"] {
+  background-color: var(--ghost-bg, #705898);
+  --bs-btn-hover-bg: var(--ghost-hover-bg, #5a4d7a);
+}
+
+label[ptype="Dark"] {
+  background-color: var(--dark-bg, #705848);
+  --bs-btn-hover-bg: var(--dark-hover-bg, #5a4d3d);
+}
+
+label[ptype="Steel"] {
+  background-color: var(--steel-bg, #b8b8d0);
+  --bs-btn-hover-bg: var(--steel-hover-bg, #a3a3c2);
+}
+
+label[ptype="Fairy"] {
+  background-color: var(--fairy-bg, #ee99ac);
+  --bs-btn-hover-bg: var(--fairy-hover-bg, #d97fa1);
+}
+
+label[ptype="Dragon"] {
+  background-color: var(--dragon-bg, #7038f8);
+  --bs-btn-hover-bg: var(--dragon-hover-bg, #5829b8);
+}
+
+/* Add styling for the second container */
+.second-container {
+  padding: 20px;
+}
+
+@media (max-width: 1176px) {
+  .type-selector .btn {
+    font-size: 14px;
+    width: fit-content;
+  }
+}
+
+.results {
+  padding: 4px;
+  border-style: solid;
+  border-color: #00000087;
+  border-width: 1px;
+  line-height: 1.25;
+  text-align: center;
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+  display: inline-block;
+  min-width: 100px;
+}
