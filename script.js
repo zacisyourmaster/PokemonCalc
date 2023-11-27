@@ -20,7 +20,7 @@ const typeChart = {
     Fairy: 1.0,
   },
   Fighting: {
-    Normal: 1.0,
+    Normal: 2.0,
     Fighting: 1.0,
     Flying: 0.5,
     Poison: 0.5,
