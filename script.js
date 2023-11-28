@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var form = document.querySelector(".poke-search form");
 
-  fetch("pokedex3.json")
+  fetch("pokedex2.json")
     .then((response) => response.json())
     .then((data) => {
       form.addEventListener("submit", function (event) {
