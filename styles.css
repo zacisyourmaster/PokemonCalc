@@ -30,7 +30,7 @@ label[ptype] {
   text-shadow: 0 1px 0 black, 0 0 1px rgba(0, 0, 0, .6), 0 0 2px rgba(0, 0, 0, .7), 0 0 3px rgba(0, 0, 0, .8), 0 0 4px rgba(0, 0, 0, .9);
   font-size: 1.1rem;
   --bs-btn-hover-border-color:var(--bs-btn-hover-bg);
-
+  line-height: 1.25rem;
 }
 label[ptype="Normal"] {
   background-color: var(--normal-bg, #c2beb7);
@@ -89,8 +89,8 @@ label[ptype="Ghost"] {
   --bs-btn-hover-bg: var(--ghost-hover-bg, #5A4D7A);
 }
 label[ptype="Dark"] {
-  background-color: var(--dark-bg, #705848);
-  --bs-btn-hover-bg: var(--dark-hover-bg, #5A4D3D);
+  background-color: var(--dark-bg, #2F251E);
+  --bs-btn-hover-bg: var(--dark-hover-bg, #1F1914);
 }
 label[ptype="Steel"] {
   background-color: var(--steel-bg, #B8B8D0);
@@ -109,14 +109,15 @@ label[ptype="Dragon"] {
   padding: 20px;
 }
 .results {
-  padding: 4px;
+  padding: .5rem;
   border-style: solid;
   border-color:#00000087;
   border-width: 1px;
-  line-height: 1.25;
+  line-height: 1rem;
   text-align: center;
   border-radius: 0.25rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   display: inline-block;
   min-width: 100px;
+  font-weight: bold;
 }

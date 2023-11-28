@@ -194,7 +194,7 @@ const typeChart = {
     Grass: 2.0,
     Electric: 1.0,
     Psychic: 1.0,
-    Ice: 1.0,
+    Ice: 2.0,
     Dragon: 0.5,
     Dark: 1.0,
     Fairy: 1.0,
@@ -267,7 +267,7 @@ const typeChart = {
     Ground: 1.0,
     Rock: 1.0,
     Bug: 1.0,
-    Ghost: 2.0,
+    Ghost: 1.0,
     Steel: 0.5,
     Fire: 1.0,
     Water: 1.0,
@@ -285,7 +285,7 @@ const typeChart = {
     Flying: 2.0,
     Poison: 1.0,
     Ground: 2.0,
-    Rock: 2.0,
+    Rock: 1.0,
     Bug: 1.0,
     Ghost: 1.0,
     Steel: 0.5,
@@ -375,11 +375,14 @@ const typeColors = {
   Bug: "#A8B820",
   Rock: "#B8A038",
   Ghost: "#705898",
-  Dark: "#705848",
+  Dark: "#2F251E",
   Steel: "#B8B8D0",
   Fairy: "#EE99AC",
   Dragon: "#7038F8",
 };
+const primary = document.querySelectorAll(".primaryType");
+const secondary = document.querySelectorAll(".secondaryType");
+const types = ["Normal", null];
 
 function weakness(type1, type2 = null) {
   var neutral = [];
@@ -427,12 +430,10 @@ document.addEventListener("DOMContentLoaded", () => {
   updateResults("Normal");
   const primary = document.querySelectorAll(".primaryType");
   const secondary = document.querySelectorAll(".secondaryType");
-  let types = ["Normal"];
-
   for (let i = 0; i < primary.length; i++) {
     primary[i].addEventListener("click", () => {
       types[0] = primary[i].getAttribute("ptype");
-      updateResults(types[0]);
+      updateResults(types[0],types[1]);
     });
   }
   for (let i = 0; i < secondary.length; i++) {
