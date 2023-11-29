@@ -121,3 +121,9 @@ label[ptype="Dragon"] {
   min-width: 100px;
   font-weight: bold;
 }
+@media (max-width:800px) {
+  label[ptype]{
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+}

@@ -380,9 +380,10 @@ const typeColors = {
   Fairy: "#EE99AC",
   Dragon: "#7038F8",
 };
+
+const types = ["Normal", null];
 const primary = document.querySelectorAll(".primaryType");
 const secondary = document.querySelectorAll(".secondaryType");
-const types = ["Normal", null];
 
 function weakness(type1, type2 = null) {
   var neutral = [];
@@ -425,15 +426,30 @@ function weakness(type1, type2 = null) {
 
   return defenses;
 }
-
+function handleResize() {
+  const main = document.querySelector("main");
+  const types = document.querySelector("#types");
+  const def = document.querySelector("#def");
+  if (window.innerWidth < 768) {
+    main.className = "container-fluid";
+    types.className = "flex-auto";
+    def.className = "flex-auto container-fluid";
+  } else {
+    types.className = "flex-auto w-50 pe-5";
+    def.className = "flex-auto w-50 ps-5 d-sm-block";
+    main.className = "container-fluid px-4 pt-0 pb-4 d-flex content-wide";
+  }
+}
+window.addEventListener("resize", handleResize);
 document.addEventListener("DOMContentLoaded", () => {
+  handleResize();
   updateResults("Normal");
   const primary = document.querySelectorAll(".primaryType");
   const secondary = document.querySelectorAll(".secondaryType");
   for (let i = 0; i < primary.length; i++) {
     primary[i].addEventListener("click", () => {
       types[0] = primary[i].getAttribute("ptype");
-      updateResults(types[0],types[1]);
+      updateResults(types[0], types[1]);
     });
   }
   for (let i = 0; i < secondary.length; i++) {
@@ -459,6 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (key == "qtrx") heading.textContent = "Takes 1/4x Damage From";
       if (key == "zerox") heading.textContent = "Takes 0x Damage From";
       const types = document.createElement("p");
+      types.className = "text-justify";
       const ar = result[key];
       for (const element of ar) {
         const span = document.createElement("span");
@@ -475,8 +492,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //form
   var form = document.querySelector(".poke-search form");
-
   fetch("completePokedex.json")
     .then((response) => response.json())
     .then((data) => {
