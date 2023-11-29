@@ -477,19 +477,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var form = document.querySelector(".poke-search form");
 
-  fetch("pokedex2.json")
+  fetch("completePokedex.json")
     .then((response) => response.json())
     .then((data) => {
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         const notFound = document.querySelector(".nf");
-        var pokemonName = document.getElementById("pname").value.trim();
+        var pokemonName = document.querySelector("#pname").value.trim();
         var pokemonData = data.find(
-          (pokemon) => pokemon.name.toLowerCase() === pokemonName.toLowerCase()
+          (pokemon) => pokemon.Name.toLowerCase() === pokemonName.toLowerCase()
         );
 
         if (pokemonData) {
-          var typeInfo = pokemonData.pdtype;
+          var typeInfo = pokemonData.Types;
           updateResults(typeInfo[0], typeInfo[1]);
           notFound.setAttribute("style", "display: none !important;");
         } else {
