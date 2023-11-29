@@ -153,7 +153,7 @@ const typeChart = {
     Water: 1.0,
     Grass: 1.0,
     Electric: 1.0,
-    Psychic: 1.0,
+    Psychic: 2.0,
     Ice: 1.0,
     Dragon: 1.0,
     Dark: 0.5,
