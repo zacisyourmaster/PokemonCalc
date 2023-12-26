@@ -7617,5 +7617,115 @@
       "Grass",
       "Psychic"
     ]
+  },
+  {
+    "Name": "Dipplin",
+    "Number": "1011",
+    "Types": [
+      "Grass",
+      "Dragon"
+    ]
+  },
+  {
+    "Name": "Poltchageist",
+    "Number": "1012",
+    "Types": [
+      "Grass",
+      "Ghost"
+    ]
+  },
+  {
+    "Name": "Sinistcha",
+    "Number": "1013",
+    "Types": [
+      "Grass",
+      "Ghost"
+    ]
+  },
+  {
+    "Name": "Okidogi",
+    "Number": "1014",
+    "Types": [
+      "Poison",
+      "Fighting"
+    ]
+  },
+  {
+    "Name": "Munkidori",
+    "Number": "1015",
+    "Types": [
+      "Poison",
+      "Psychic"
+    ]
+  },
+  {
+    "Name": "Fezandipiti",
+    "Number": "1016",
+    "Types": [
+      "Poison",
+      "Fairy"
+    ]
+  },
+  {
+    "Name": "Ogerpon",
+    "Number": "1017",
+    "Types": [
+      "Grass"
+    ]
+  },
+  {
+    "Name": "Archaludon",
+    "Number": "1018",
+    "Types": [
+      "Steel",
+      "Dragon"
+    ]
+  },
+  {
+    "Name": "Hydrapple",
+    "Number": "1019",
+    "Types": [
+      "Grass",
+      "Dragon"
+    ]
+  },
+  {
+    "Name": "Gouging Fire",
+    "Number": "1020",
+    "Types": [
+      "Fire",
+      "Dragon"
+    ]
+  },
+  {
+    "Name": "Raging Bolt",
+    "Number": "1021",
+    "Types": [
+      "Electric",
+      "Dragon"
+    ]
+  },
+  {
+    "Name": "Iron Boulder",
+    "Number": "1022",
+    "Types": [
+      "Rock",
+      "Psychic"
+    ]
+  },
+  {
+    "Name": "Iron Crown",
+    "Number": "1023",
+    "Types": [
+      "Steel",
+      "Psychic"
+    ]
+  },
+  {
+    "Name": "Terapagos",
+    "Number": "1024",
+    "Types": [
+      "Normal"
+    ]
   }
 ]
