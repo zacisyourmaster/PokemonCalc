@@ -3,16 +3,18 @@ body{
 }
 .my-heading {
   border-radius: 2px;
-  background: linear-gradient(#ffffffa9, #212529);
+  background: linear-gradient(#31363c, #212529);
   margin-top: 0 !important;
   padding-top: 1rem !important;
   padding-bottom: 0.5rem !important;
   border-radius: 0%;
 }
+/* 
 h1 {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-}
+  -webkit-text-stroke-width: px;
+  -webkit-text-stroke-color: black; 
+} 
+*/
 .one {
   color: red;
 }

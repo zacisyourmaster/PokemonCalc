@@ -473,7 +473,7 @@ function updateResults(t1, t2) {
     }
 }
 
-window.addEventListener("resize", handleResize);  //handle window resize
+window.addEventListener("resize", handleResize); //handle window resize
 
 // const primary = document.querySelectorAll(".primaryType");
 // const secondary = document.querySelectorAll(".secondaryType");
@@ -485,14 +485,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const secondary = document.querySelectorAll(".secondaryType");
     let types = ["Normal", null];
 
-    primary.forEach((element) => {//handle first type
+    primary.forEach((element) => {
+        //handle first type
         element.addEventListener("click", () => {
             types[0] = element.getAttribute("ptype");
             updateResults(types[0], types[1]);
         });
     });
 
-    secondary.forEach((element) => {//handle second type
+    secondary.forEach((element) => {
+        //handle second type
         element.addEventListener("click", () => {
             types[1] = element.getAttribute("ptype");
             if (types[1] === "null") types[1] = types[0];
@@ -501,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     //form
-    const form = document.querySelector(".poke-search form");//handle form submission
+    const form = document.querySelector(".poke-search form"); //handle form submission
     fetch("completePokedex.json")
         .then((response) => response.json())
         .then((data) => {

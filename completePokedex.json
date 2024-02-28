@@ -7727,5 +7727,13 @@
     "Types": [
       "Normal"
     ]
+  },
+  {
+    "Name": "Pecharunt",
+    "Number": "1025",
+    "Types": [
+      "Poison",
+      "Ghost"
+    ]
   }
 ]
