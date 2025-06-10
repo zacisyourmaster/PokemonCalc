@@ -5,20 +5,15 @@ import json
 sys.stdout.reconfigure(encoding='utf-8')
 
 url="https://pokemondb.net/pokedex/all"
+
 result=requests.get(url).text
 doc=BeautifulSoup(result,"html.parser")
 table=doc.find("table")
 thead=table.find("thead")
 th=thead.find_all("th")
-
-# keys=[]#number, name,type,stat total,hp,attack,defense,sp. attack, sp def,speed
-# for header in th:
-#     keys.append(header.string)
-# pokemon={keys[i]:keys for i in range(len(keys))}
-# pokedex=[pokemon]
 tbody= table.find("tbody")
 trs=tbody.find_all("tr")
-#print(trs[0].prettify())
+
 pokedex={}
 
 for tr in trs:# for each row in the table i extract the name, type and pokemon numbers.
